@@ -71,4 +71,4 @@ http://127.0.0.1:8000/AppVet/veterinarios/ se podran cargar los datos de los dis
 ## Autores
 
 | [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Santiago Vidal</sub>](https://github.com/svidal716) |  [<img src="https://avatars.githubusercontent.com/u/71970858?v=4" width=115><br><sub>Maximiliano Gallegillo</sub>]([https://github.com/mgallegi] | 
-| :---: | :---: | :---: |
+| :---: | :---: |
