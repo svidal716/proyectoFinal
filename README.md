@@ -55,4 +55,10 @@ http://127.0.0.1:8000/AppVet/veterinarios/ se podran cargar los datos de los dis
 ![db](https://user-images.githubusercontent.com/97696225/188517668-fda3cb1e-8c1a-4ba7-8a09-a653b5f7b8a7.png)
 
 
+- Una vez agregado los datos, podemos ir a la seccion buscar http://127.0.0.1:8000/AppVet/busquedaVeterinario/ , Introducir un nombre de Veterinario, y nos traera todos los registros en nustra base de datos con ese nombre.
+
+![buscar](https://user-images.githubusercontent.com/97696225/188517809-c69453b3-b98a-4141-a579-fcfb629abbce.PNG)
+
+
+
 
