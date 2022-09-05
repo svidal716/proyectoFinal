@@ -1,4 +1,6 @@
 from django.db import models
+from AppVet.choice import *
+
 
 # Create your models here.
 
@@ -13,6 +15,9 @@ class datosVeterinarios(models.Model):
     matriculaVet = models.IntegerField()
     emailVet = models.EmailField(max_length=254)
     telefonoVet = models.IntegerField()
+
+    def __str__(self):
+        return self.nombreVet+" "+str(self.apellidoVet)+" "+str(self.fechaNacimientoVet)+" "+str(self.matriculaVet)+" "+str(self.emailVet)+" "+str(self.telefonoVet)
 
 
 # Definimos el Model Datos Dueño de la Mascota:
@@ -37,7 +42,8 @@ class datosMascota(models.Model):
     nombreMascota = models.CharField(max_length=30)
     razaMascota = models.CharField(max_length=50)
     # ----------------------------modificar lista
-    especieMascota = models.CharField(max_length=50)
+
+    especieMascota = models.CharField(max_length=30)
     fechaNacimientoMascota = models.DateField()
 
 # Definimos el Model historia Clinica de la Mascota.
@@ -45,10 +51,10 @@ class datosMascota(models.Model):
 
 class historiaClinica(models.Model):
 
-    fechaConsulta = models.DateTimeField()
+    fechaConsulta = models.DateField()
     # -------- Lista con Macho / Hembra
     sexoMascota = models.CharField(max_length=30)
-    pesoMascota = models.FloatField(max_length=5)
+    pesoMascota = models.FloatField()
     colorMascota = models.CharField(max_length=30)
     enfermedadPreviaMascota = models.CharField(max_length=250)
     # -------- Checkbox con las vacunas.

@@ -1,0 +1,24 @@
+{% extends "AppVet/inicio.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Veterinario!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h1>Resultado Busqueda</h1>
+{% if busquedaVete %}
+<ul>
+  {% for veterinario in busquedaVete %}
+
+  <li>{{veterinario.nombreVet}}</li>
+  <li>{{veterinario.apellidoVet}}</li>
+  <li>{{veterinario.fechaNacimientoVet}}</li>
+  <li>{{veterinario.matriculaVet}}</li>
+  <li>{{veterinario.emailVet}}</li>
+  <li>{{veterinario.telefonoVet}}</li>
+  <br />
+  {% endfor %}
+</ul>
+
+{% else %}
+
+<p>No se encontraron Veterinarios</p>
+
+{% endif %} {% endblock %}

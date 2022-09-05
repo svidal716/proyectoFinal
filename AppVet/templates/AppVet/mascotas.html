@@ -1,0 +1,14 @@
+{% extends "AppVet/inicio.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Agregar Datos de Mascota!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+<form action="{% url 'mascotas' %}" method="POST">
+  {% csrf_token %}
+
+  <table>
+    {{ formularioMascotas.as_table }}
+  </table>
+
+  <input type="submit" value="Enviar" />
+</form>
+
+{% endblock %}
