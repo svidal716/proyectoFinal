@@ -29,6 +29,7 @@
 
 - Luego podemos navegar por el menu de la pagina principal:
 
+
 ![menu](https://user-images.githubusercontent.com/97696225/188517262-28c36340-6d47-4182-8e49-ffc4f4960434.png)
 
 para el cual se crearon las siguientes URLs:
@@ -48,16 +49,22 @@ para el cual se crearon las siguientes URLs:
 - En cada seccion de nuestra Web podremos completar los formularios correspondientes para agregar la informacion a la base de datos. Como por ejemplo en la seccion  
 http://127.0.0.1:8000/AppVet/veterinarios/ se podran cargar los datos de los distintos veterinarios.
 
+
 ![ejemploVeterinarios](https://user-images.githubusercontent.com/97696225/188517569-af2d5dfc-9a42-489c-a8fe-0c44dc129531.png)
 
 - Una vez enviado los datos quedaran guardados en la DB.
 
+
 ![db](https://user-images.githubusercontent.com/97696225/188517668-fda3cb1e-8c1a-4ba7-8a09-a653b5f7b8a7.png)
+
 
 
 - Una vez agregado los datos, podemos ir a la seccion buscar http://127.0.0.1:8000/AppVet/busquedaVeterinario/ , Introducir un nombre de Veterinario, y nos traera todos los registros en nustra base de datos con ese nombre.
 
+
 ![buscar](https://user-images.githubusercontent.com/97696225/188517809-c69453b3-b98a-4141-a579-fcfb629abbce.PNG)
+
+
 
 
 
