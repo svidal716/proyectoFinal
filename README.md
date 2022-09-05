@@ -66,8 +66,8 @@ http://127.0.0.1:8000/AppVet/veterinarios/ se podran cargar los datos de los dis
 
 
 
+## Autores:
+- Santiago Vidal
+- Maximiliano Gallegillo
 
-
-## Autores 
-| [<![PersonalPhoto](https://user-images.githubusercontent.com/97696225/188518478-b1fd81ce-f003-4a6a-9758-bb13be37dc26.jpg) " width=115><br><sub>Camila Fernanda Alves</sub>](https://github.com/camilafernanda) |  [<img src="https://avatars.githubusercontent.com/u/71970858?v=4" width=115><br><sub>Ellen Pimentel</sub>]([https://github.com/guilhermeonrails](https://github.com/ellenpimentel)) |  [<img src="https://avatars.githubusercontent.com/u/91544872?v=4" width=115><br><sub>Génesys Rondón</sub>](https://github.com/genesysaluralatam) | | :---: | :---: | :---: |
 
