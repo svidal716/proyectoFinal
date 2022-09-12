@@ -1,0 +1,81 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Veterinario!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h1>Resultado Busqueda</h1>
+{% if busquedaVete %}
+<table>
+  <tr>
+    <h3>
+      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Nombre</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Apellido</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="20"><p align="center">Fecha de Nacimiento</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10"><p align="center">Matricula</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="50"><p align="center">Email</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10"><p align="center">Telefono</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+    </h3>
+  </tr>
+
+  {% for veterinario in busquedaVete %}
+
+  <tr>
+    <h3>
+      <td width="20"><p align="center">{{veterinario.id}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{veterinario.nombreVet}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{veterinario.apellidoVet}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{veterinario.fechaNacimientoVet}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{veterinario.matriculaVet}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{veterinario.emailVet}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{veterinario.telefonoVet}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+    </h3>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-danger"
+          href="{% url 'eliminarVeterinario' veterinario.id %}"
+        >
+          Eliminar
+        </a>
+      </p>
+    </td>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-success"
+          href="{% url 'modificarVeterinario' veterinario.id %}"
+        >
+          Editar
+        </a>
+      </p>
+    </td>
+  </tr>
+
+  <br />
+  {% endfor %} {% else %}
+</table>
+<p>No se encontraron Veterinarios</p>
+
+{% endif %} {% endblock %}

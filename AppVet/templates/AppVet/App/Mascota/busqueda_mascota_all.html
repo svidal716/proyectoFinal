@@ -1,0 +1,76 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Mascotas!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h1>Resultado Busqueda</h1>
+{% if mascotas %}
+<table>
+  <tr>
+    <h3>
+      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Nombre</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Raza</p></th>
+      <th width="10">
+      <th width="30"><p align="center">Especie</p></th>
+      <th width="10">
+      <th width="30"><p align="center">Fecha De Nacimiento </p></th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+    </h3>
+  </tr>
+  {% for mascota in mascotas %}
+  <tr>
+  <h3>
+    <td width="20"><p align="center">{{mascota.id}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{mascota.nombreMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{mascota.razaMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{mascota.especieMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50"><p align="center">{{mascota.fechaNacimientoMascota}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-danger"
+          href="{% url 'eliminarMascota' mascota.id %}"
+        >
+          Eliminar
+        </a>
+      </p>
+    </td>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-success"
+          href="{% url 'modificarMascota' mascota.id %}"
+        >
+          Editar
+        </a>
+      </p>
+    </td>
+  </tr>
+
+  <br />
+  {% endfor %} {% else %}
+</table>
+
+
+
+<p>No se encontraron Veterinarios</p>
+
+{% endif %} {% endblock %}

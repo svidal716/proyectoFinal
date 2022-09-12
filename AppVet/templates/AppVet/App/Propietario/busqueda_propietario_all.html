@@ -1,0 +1,103 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Propietarios All!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h1>Resultado Busqueda</h1>
+{% if propietarios %}
+<table>
+  <tr>
+    <h3>
+      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Nombre</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Apellido</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="20"><p align="center">Fecha de Nacimiento</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10"><p align="center">DNI</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="50"><p align="center">Email</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="50"><p align="center">Direccion</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="50"><p align="center">Barrio</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="50"><p align="center">Ciudad</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10"><p align="center">Telefono</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+    </h3>
+  </tr>
+  {% for propietario in propietarios %}
+  <tr>
+    <h3>
+      <td width="20"><p align="center">{{propietario.id}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.nombrePropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.apellidoPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.fechaNacimientoPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{propietario.dniPropietario}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{propietario.emailPropietario}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.direccionPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.barrioPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.ciudadPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{propietario.telefonoPropietario}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+    </h3>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-danger"
+          href="{% url 'eliminarPropietario' propietario.id %}"
+        >
+          Eliminar
+        </a>
+      </p>
+    </td>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-success"
+          href="{% url 'modificarPropietario' propietario.id %}"
+        >
+          Editar
+        </a>
+      </p>
+    </td>
+  </tr>
+
+  <br />
+  {% endfor %} {% else %}
+</table>
+<p>No se encontraron Propietarios</p>
+
+{% endif %} {% endblock %}

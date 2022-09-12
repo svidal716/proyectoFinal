@@ -1,0 +1,110 @@
+{% extends "AppVet/index.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Nosotros!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<!-- Hero Area Start -->
+<div class="slider-area2 slider-height2 d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="hero-cap text-center pt-50">
+          <h2>Sobre Nosotros</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hero Area End -->
+<!-- About Details Start -->
+<div class="about-details section-padding30">
+  <div class="container">
+    <div class="row">
+      <div class="offset-xl-1 col-lg-8">
+        <div class="about-details-cap mb-50">
+          <h4>La misión de PetCare es:</h4>
+          <p>
+            # Asociarnos con nuestros clientes para nutrir y preservar el
+            vínculo humano-animal.
+          </p>
+          <p>
+            # Brindar un excelente servicio veterinario utilizando el más alto
+            nivel de atención y manteniéndose al tanto de los avances más
+            recientes en nuestro campo.
+          </p>
+          <p>
+            # Educar a nuestros clientes sobre el papel que desempeñan en el
+            mantenimiento de la salud y la felicidad de sus mascotas.
+          </p>
+          <p>
+            # Fomentar el crecimiento profesional de todo el personal para
+            garantizar que nuestra práctica lidere a la comunidad tanto en
+            medicina veterinaria como en servicio al cliente.
+          </p>
+        </div>
+
+        <div class="about-details-cap mb-50">
+          <h4>La Visión de PetCare:</h4>
+          <p>
+            Trabajar para ser el proveedor de cuidado de mascotas más confiable
+            y respetado en nuestra comunidad al administrar la mejor atención
+            médica y emocional posible y brindar un excelente servicio al
+            cliente a cada paciente y cada cliente en cada visita.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Details End -->
+<!--? Team Start -->
+<div class="team-area section-padding30">
+  <div class="container">
+    <div class="row justify-content-sm-center">
+      <div class="cl-xl-7 col-lg-8 col-md-10">
+        <!-- Section Tittle -->
+        <div class="section-tittle text-center mb-70">
+          <span>Nuestros Profesionales </span>
+          <h2>Nuestro Equipo</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- single Tem -->
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+        <div class="single-team mb-30">
+          <div class="team-img">
+            <img src="{% static 'assets/img/gallery/team1.png' %}" alt="" />
+          </div>
+          <div class="team-caption">
+            <span>Mike Janathon</span>
+            <h3>Doctor</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+        <div class="single-team mb-30">
+          <div class="team-img">
+            <img src="{% static 'assets/img/gallery/team2.png' %}" alt="" />
+          </div>
+          <div class="team-caption">
+            <span>Mike J Smith</span>
+            <h3>Doctor</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+        <div class="single-team mb-30">
+          <div class="team-img">
+            <img src="{% static 'assets/img/gallery/team3.png' %}" alt="" />
+          </div>
+          <div class="team-caption">
+            <span>Pule W Smith</span>
+            <h3>Doctora</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team End -->
+{% endblock %}

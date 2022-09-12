@@ -1,0 +1,19 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Modificar un Dueño de Mascota!</h1>
+<br />
+<h3 class="mb-5">
+  Editando el Dueño de Mascota: {{ propietario.nombrePropietario }}.
+</h3>
+{% endblock %} {% block contenido_que_cambia %}
+<br />
+<form action="{% url 'modificarPropietario' propietario.id %}" method="POST">
+  {% csrf_token %}
+
+  <table>
+    {{ formularioPropMod.as_table }}
+  </table>
+  <br />
+  <input type="submit" value="Guardar" />
+</form>
+
+{% endblock %}

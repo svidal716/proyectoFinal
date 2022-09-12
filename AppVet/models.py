@@ -7,7 +7,7 @@ from AppVet.choice import *
 # Definimos el Model Veterinarios donde se agregaran los veterinarios que trabajan.
 
 
-class datosVeterinarios(models.Model):
+class DatosVeterinarios(models.Model):
 
     nombreVet = models.CharField(max_length=30)
     apellidoVet = models.CharField(max_length=30)
@@ -22,7 +22,7 @@ class datosVeterinarios(models.Model):
 
 # Definimos el Model Datos Dueño de la Mascota:
 
-class datosPropietario(models.Model):
+class DatosPropietario(models.Model):
 
     nombrePropietario = models.CharField(max_length=30)
     apellidoPropietario = models.CharField(max_length=30)
@@ -37,7 +37,7 @@ class datosPropietario(models.Model):
 
 # Definimos el Model Datos principales de la Mascota:
 
-class datosMascota(models.Model):
+class DatosMascota(models.Model):
 
     nombreMascota = models.CharField(max_length=30)
     razaMascota = models.CharField(max_length=50)
@@ -49,7 +49,7 @@ class datosMascota(models.Model):
 # Definimos el Model historia Clinica de la Mascota.
 
 
-class historiaClinica(models.Model):
+class HistoriaClinica(models.Model):
 
     fechaConsulta = models.DateField()
     # -------- Lista con Macho / Hembra

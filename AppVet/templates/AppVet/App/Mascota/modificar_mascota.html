@@ -1,0 +1,17 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Modificar una Mascota!</h1>
+<br />
+<h3 class="mb-5">Editando Mascita: {{ mascota }}.</h3>
+{% endblock %} {% block contenido_que_cambia %}
+<br />
+<form action="{% url 'modificarMascota' mascota.id %}" method="POST">
+  {% csrf_token %}
+
+  <table>
+    {{ formularioMascotaMod.as_table }}
+  </table>
+  <br />
+  <input type="submit" value="Guardar" />
+</form>
+
+{% endblock %}

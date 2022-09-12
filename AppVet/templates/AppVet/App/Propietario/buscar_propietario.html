@@ -1,0 +1,13 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Propietarios!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<form action="{% url 'buscarPropietario' %}" method="GET">
+  <input name="propietario" id="propietario" />
+
+  <input type="submit" value="Buscar" />
+</form>
+<br />
+<a class="btn btn-warning" href="{% url 'busquedaPropAll' %}">Ver Todos</a>
+
+{% endblock %}

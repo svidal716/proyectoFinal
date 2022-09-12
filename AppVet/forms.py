@@ -70,7 +70,7 @@ class mascotaForm(forms.Form):
         widget=NumberInput(attrs={'type': 'date'}), label="Fecha de Nacimiento")
 
 
-class historiaForm(forms.Form):
+class historiaClinicaForm(forms.Form):
 
     fechaConsultaForm = forms.DateField()
 
