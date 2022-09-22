@@ -1,0 +1,13 @@
+{% extends "AppVet/App/login.html" %} {% load static %}
+
+            {% block contenido_que_cambia %}
+            <div>
+              <h2>TE DESLOGUEASTE CORRECTAMENTE</h2>
+            </div>
+            <div>
+              <a href="{% url 'login' %}">
+                <button class="submit" type="submit">INICIAR SESION</button>
+              </a>
+            </div>
+          </div>
+          {% endblock contenido_que_cambia %}

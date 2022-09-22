@@ -1,5 +1,6 @@
 from django.urls import path
 from AppVet import views
+from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
@@ -10,13 +11,13 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('services/', views.services, name="services"),
     path('contact/', views.contact, name="contact"),
-    path('inicio/', views.inicio, name="inicio"),
+    # path('inicio/', views.inicio, name="inicio"),
 
 
     # -------------- URL APP ADMINISTRACION-------------------------
 
     path('app_admin/', views.appAdmin, name="appAdmin"),
-    path('login/', views.login, name="login"),
+    path('login/', views.login_request, name="Login"),
 
 
     # -------------- URL VETERINARIO ---------------------------
@@ -75,6 +76,12 @@ urlpatterns = [
     # path('inicioHisClinica/', views.inicioHisClinica, name="inicioHisClinica"),
 
 
+    # login register logout
+    path('login/', views.login_request, name='login'),
+    path('register/', views.register, name='register'),
+    path('logout/', LogoutView.as_view(template_name='AppVet/App/Usuario/logout.html'), name='logout'),
+    #     path('editarPerfil/', editarPerfil, name='editarPerfil'),
+    #     path('agregarAvatar/', agregarAvatar, name='agregarAvatar'),
 
 
 

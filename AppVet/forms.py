@@ -5,6 +5,8 @@ from django import forms
 from django.conf import settings
 from AppVet.choice import *
 from django.forms.widgets import NumberInput
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 # Creamos el Formulario general para la primera entrega.
@@ -99,3 +101,35 @@ class historiaClinicaForm(forms.Form):
     # -----> Seleccionar de la lista de Veterinarios Agregados.
     veterinarioMascotaForm = forms.CharField(
         max_length=80, label="Veterinario ")
+
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    password1 = forms.CharField(
+        label="Ingrese Contraseña", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Repita Contraseña", widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+        help_texts = {k: "" for k in fields}
+
+
+class UserEditForm(UserCreationForm):
+    email = forms.EmailField()
+    password1 = forms.CharField(
+        label="Ingrese Contraseña", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Repita Contraseña", widget=forms.PasswordInput)
+    first_name = forms.CharField(label='Modificar Nombre')
+    last_name = forms.CharField(label='Modificar Apellido')
+
+    class Meta:
+        model = User
+        fields = ['email', 'password1', 'password2', 'first_name', 'last_name']
+        help_texts = {k: "" for k in fields}
+
+
+class AvatarForm(forms.Form):
+    imagen = forms.ImageField(label="Imagen")

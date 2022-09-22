@@ -1009,6 +1009,7 @@ a.bg-danger:hover {
     background: rgba(0, 0, 0, 0.8); }
 
 .counter-input .input-group {
+  background: rgba(0, 0, 0, 0.8);
   width: 20%; }
 
 .pro-det-tab .tab-content {
@@ -10952,6 +10953,7 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
   height: 100%; }
 
 .signin-card .auth-box button i, .signup-card .auth-box button i, .login-card .auth-box button i {
+  background-color: #000;
   padding: 5px 0; }
 
 .login-card.auth-body {
@@ -11074,6 +11076,12 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
   width: 100%;
   min-height: 100vh; }
 
+.registrar_usuario {
+
+  background-color: #000;
+
+
+}
 .auth-box {
   background-color: #fff;
   border-radius: 8px;
@@ -11181,6 +11189,8 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
       .login.offline-404 h2 {
         margin-bottom: 15px;
         margin-top: 15px; } }
+
+
 
 /**====== Authentication-page css end ======**/
 /**  =====================

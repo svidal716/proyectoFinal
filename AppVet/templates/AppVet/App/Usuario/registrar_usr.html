@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     {% load static %}
     <title>PetCare - Iniciar Sesion</title>
@@ -7,36 +7,27 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'App/assets/css/login_2.css' %}"
+      href="{% static 'App/assets/css/login.css' %}"
     />
     <body>
-      <style>
-        .errorlist {
-          display: none;
-        }
-      </style>
       <section class="login">
         <div class="login_box">
           <div class="left">
             <div class="top_link">
-              <a href="{% url 'index' %}">Volver Inicio!</a>
-              <a href="{% url 'register' %}">Registrate!</a>
+              <a href="{% url 'login' %}">Iniciar Sesion!</a>
             </div>
-            {% block contenido_que_cambia %}
             <div class="contact">
-              <form action="{% url 'login' %}" method="POST">
+              <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                 <h3>Iniciar Sesion</h3>
-                <h3>{{ mensaje }}</h3>
                 <table>
                   {{ formulario.as_table }}
                 </table>
-                <button class="submit" type="submit">INICIAR SESION</button>
+                <h3>{{ mensaje }}</h3>
+                <button class="submit" type="submit">CREAR USUARIO</button>
               </form>
             </div>
-            <h3>Registrate!</h3>
           </div>
-          {% endblock %}
           <div class="right">
             <div class="right-text">
               <h2>PetCare</h2>

@@ -1,6 +1,6 @@
 from django.db import models
 from AppVet.choice import *
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -66,3 +66,8 @@ class HistoriaClinica(models.Model):
     diagnosticoMascota = models.CharField(max_length=350)
     # -----> Seleccionar de la lista de Veterinarios Agregados.
     veterinarioMascota = models.CharField(max_length=50)
+
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares')
