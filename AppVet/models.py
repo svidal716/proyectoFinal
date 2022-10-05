@@ -1,5 +1,6 @@
+from tkinter import CASCADE
 from django.db import models
-from AppVet.choice import *
+from AppVet.choices import *
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -7,6 +8,10 @@ from django.contrib.auth.models import User
 # Definimos el Model Veterinarios donde se agregaran los veterinarios que trabajan.
 
 
+####################################################################################################################################################
+# -------------  MODEL VETERINARIO -----------------------------------------------------------------------------------------------------------------
+####################################################################################################################################################
+# # Definimos el Model para los Veterinarios:
 class DatosVeterinarios(models.Model):
 
     nombreVet = models.CharField(max_length=30)
@@ -17,10 +22,13 @@ class DatosVeterinarios(models.Model):
     telefonoVet = models.IntegerField()
 
     def __str__(self):
-        return self.nombreVet+" "+str(self.apellidoVet)+" "+str(self.fechaNacimientoVet)+" "+str(self.matriculaVet)+" "+str(self.emailVet)+" "+str(self.telefonoVet)
+        return self.apellidoVet
 
 
-# Definimos el Model Datos Dueño de la Mascota:
+####################################################################################################################################################
+# -------------  MODEL PROPIETARIOS ----------------------------------------------------------------------------------------------------------------
+####################################################################################################################################################
+# # Definimos el Model para los Propietarios:
 
 class DatosPropietario(models.Model):
 
@@ -34,40 +42,72 @@ class DatosPropietario(models.Model):
     ciudadPropietario = models.CharField(max_length=50)
     telefonoPropietario = models.IntegerField()
 
+    def __str__(self):
+        return self.apellidoPropietario
 
-# Definimos el Model Datos principales de la Mascota:
 
+####################################################################################################################################################
+# -------------  MODEL MASCOTA ---------------------------------------------------------------------------------------------------------------------
+####################################################################################################################################################
+# # Definimos el Model para las Mascotas
 class DatosMascota(models.Model):
 
     nombreMascota = models.CharField(max_length=30)
     razaMascota = models.CharField(max_length=50)
     # ----------------------------modificar lista
-
     especieMascota = models.CharField(max_length=30)
     fechaNacimientoMascota = models.DateField()
+    apellidoPropietarioMascota = models.ForeignKey(
+        DatosPropietario, on_delete=models.CASCADE, null=True)
+    imagenMascota = models.ImageField(
+        upload_to='mascotas', null=True, blank=True)
 
-# Definimos el Model historia Clinica de la Mascota.
+    def __str__(self):
+        return self.nombreMascota
+
+
+####################################################################################################################################################
+# -------------  MODEL HISTORIA CLINICA  -----------------------------------------------------------------------------------------------------------
+####################################################################################################################################################
+# # Definimos el Model para las historias clinicas:
 
 
 class HistoriaClinica(models.Model):
 
     fechaConsulta = models.DateField()
-    # -------- Lista con Macho / Hembra
+    nombreMascota = models.ForeignKey(
+        DatosMascota, on_delete=models.CASCADE, null=True)
     sexoMascota = models.CharField(max_length=30)
     pesoMascota = models.FloatField()
-    colorMascota = models.CharField(max_length=30)
     enfermedadPreviaMascota = models.CharField(max_length=250)
-    # -------- Checkbox con las vacunas.
     vacunasMascotas = models.CharField(max_length=100)
-    # -------- Lista (Balanceado / Varios )
     comidaMascota = models.CharField(max_length=100)
     temperaturaMascota = models.FloatField()
     motivoConsulta = models.CharField(max_length=250)
     diagnosticoMascota = models.CharField(max_length=350)
-    # -----> Seleccionar de la lista de Veterinarios Agregados.
-    veterinarioMascota = models.CharField(max_length=50)
+    veterinarioMascota = models.ForeignKey(
+        DatosVeterinarios, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.nombreMascota
+
+####################################################################################################################################################
+# -------------  MODEL AVATAR ----------------------------------------------------------------------------------------------------------------------
+####################################################################################################################################################
+# # Definimos el Model para los  Avatares:
 
 
 class Avatar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to='avatares')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+# class ImagenMascota(models.Model):
+#     mascota = models.OneToOneField(DatosMascota, on_delete=models.CASCADE)
+#     imagen = models.ImageField(upload_to='mascotas', null=True, blank=True)
+
+#     def __str__(self):
+#         return self.mascota.nombreMascota

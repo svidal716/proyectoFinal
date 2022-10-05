@@ -1,12 +1,12 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
-<h1 class="mb-5">Agregar una Historia Clinica</h1>
+<h1 class="mb-5">Agregar una Mascota</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<form action="{% url 'agregarHisClinica' %}" method="POST">
+<form action="{% url 'agregarClinica' %}" method="POST">
   {% csrf_token %}
 
   <table>
-    {{ formularioHisClinica.as_table }}
+    {{ formularioHClinica.as_table }}
   </table>
   <input type="submit" value="Agregar" />
 </form>

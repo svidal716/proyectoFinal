@@ -1,6 +1,6 @@
 from django.urls import path
-from AppVet import views
 from django.contrib.auth.views import LogoutView
+from AppVet import views
 
 
 urlpatterns = [
@@ -11,7 +11,7 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('services/', views.services, name="services"),
     path('contact/', views.contact, name="contact"),
-    # path('inicio/', views.inicio, name="inicio"),
+    #path('inicio/', views.inicio, name="inicio"),
 
 
     # -------------- URL APP ADMINISTRACION-------------------------
@@ -72,17 +72,27 @@ urlpatterns = [
 
     # -------------- URL HISTORIA CLINICA ---------------------------
 
-    #  path('agregarHisClinica/', views.agregarHisClinica, name="agregarHisClinica"),
-    # path('inicioHisClinica/', views.inicioHisClinica, name="inicioHisClinica"),
+    path('inicioClinica/', views.inicioClinica, name="inicioClinica"),
+    path('agregarClinica/', views.agregarClinica,
+         name="agregarClinica"),
+
+    #     path('busquedaMascota/', views.busquedaMascota,
+    #          name="busquedaMascota"),
+    #     path('buscarMascota/', views.buscarMascota, name="buscarMascota"),
+
+    #     path('busquedaMascotaAll/', views.busquedaMascotaAll,
+    #          name="busquedaMascotaAll"),
+
+    #     path('modificarMascota/<id>', views.modificarMascota,
+    #          name="modificarMascota"),
 
 
     # login register logout
     path('login/', views.login_request, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', LogoutView.as_view(template_name='AppVet/App/Usuario/logout.html'), name='logout'),
-    #     path('editarPerfil/', editarPerfil, name='editarPerfil'),
-    #     path('agregarAvatar/', agregarAvatar, name='agregarAvatar'),
-
+    path('agregarAvatar/', views.agregarAvatar, name='agregarAvatar'),
+    path('editarPerfil/', views.editarPerfil, name='editarPerfil'),
 
 
 ]

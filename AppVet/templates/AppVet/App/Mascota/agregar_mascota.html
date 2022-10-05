@@ -2,7 +2,11 @@
 <h1 class="mb-5">Agregar una Mascota</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<form action="{% url 'agregarMascota' %}" method="POST">
+<form
+  action="{% url 'agregarMascota' %}"
+  method="POST"
+  enctype="multipart/form-data"
+>
   {% csrf_token %}
 
   <table>
