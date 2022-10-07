@@ -2,22 +2,26 @@
 <h1 class="mb-5">Busqueda de Mascotas!</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<h1>Resultado Busqueda</h1>
+<h2 style="font-family: cursive">
+  Se encontraron las siguientes Mascotas:
+</h2>
+<br />
+
 {% if mascotas %}
 <table>
   <tr>
     <h3>
-      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px"style="font-family: cursive"><p align="center">ID</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Nombre</p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Nombre</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Raza</p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Raza</p></th>
       <th width="10">
-      <th width="30"><p align="center">Especie</p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Especie</p></th>
       <th width="10">
-      <th width="30"><p align="center">Fecha De Nacimiento </p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Fecha De Nacimiento </p></th>
       <th width="10">
-      <th width="30"><p align="center">Dueño Mascota </p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Dueño Mascota </p></th>
       <th width="10">
         <p align="center"></p>
       </th>
@@ -67,6 +71,11 @@
         >
           Editar
         </a>
+      </p>
+    </td>
+    <td width="50">
+      <p align="center">
+        <a class="btn btn-warning" href="{% url 'inicioMascota' %}">Volver</a>
       </p>
     </td>
   </tr>

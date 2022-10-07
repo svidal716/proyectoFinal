@@ -2,30 +2,31 @@
 <h1 class="mb-5">Busqueda de Propietario!</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<h1>Resultado Busqueda</h1>
+<h1 style="font-family: cursive">Buscar Cliente</h1>
+<br />
 {% if busquedaPropietario %}
 <table>
   <tr>
     <h3>
-      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px"><p align="center"style="font-family: cursive" >ID</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Nombre</p></th>
+      <th width="30"><p align="center" style="font-family: cursive">Nombre</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Apellido</p></th>
+      <th width="30"><p align="center" style="font-family: cursive">Apellido</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="20"><p align="center">Fecha de Nacimiento</p></th>
+      <th width="20"><p align="center" style="font-family: cursive">Fecha de Nacimiento</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">DNI</p></th>
+      <th width="10"><p align="center" style="font-family: cursive">DNI</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Email</p></th>
+      <th width="50"><p align="center" style="font-family: cursive">Email</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Direccion</p></th>
+      <th width="50"><p align="center" style="font-family: cursive">Direccion</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Barrio</p></th>
+      <th width="50"><p align="center"style="font-family: cursive" >Barrio</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Ciudad</p></th>
+      <th width="50"><p align="center"style="font-family: cursive" >Ciudad</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">Telefono</p></th>
+      <th width="10"><p align="center"style="font-family: cursive" >Telefono</p></th>
       <th width="20px"><p align="center"></p></th>
       <th width="10">
         <p align="center"></p>
@@ -99,7 +100,23 @@
   <br />
   {% endfor %} {% else %}
 </table>
-  <p>No se encontraron Propietarios</p>
-
+<h3 style="font-family: cursive">
+  No se encontro cliente con ese Nombre, Intente nuevamente.
+</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td> <a href="{% url 'busquedaPropietario' %}">
+    <button class="btn btn-success">Buscar Cliente</button>
+  </a></td>
+        <th>
+          <a class="btn btn-danger" href="{% url 'inicioPropietario' %}">Volver</a>
+        </th>
+      </tr>
+    </tbody>
+  
+  
+</h3>
+<br />
   {% endif %} {% endblock %}
 </table>

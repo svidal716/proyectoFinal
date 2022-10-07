@@ -1,8 +1,12 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Modificar un veterinario!</h1>
 <br />
-<h3 class="mb-5">Editando el Veterinario: {{ veterinario }}.</h3>
+
 {% endblock %} {% block contenido_que_cambia %}
+<h1 style="font-family: cursive">Editar Veterinarios</h1>
+<br />
+<h3 style="font-family: cursive">Editando el Veterinario: {{ veterinario.nombreVet }} {{ veterinario.apellidoVet }}</h3>
+</h3>
 <br />
 <form action="{% url 'modificarVeterinario' veterinario.id %}" method="POST">
   {% csrf_token %}
@@ -11,7 +15,19 @@
     {{ formularioVetMod.as_table }}
   </table>
   <br />
-  <input type="submit" value="Guardar" />
+  <table>
+    <tbody>
+      <tr>
+        <td>   <input type="submit"  class="btn btn-success" value="Guardar" /></td>
+        <th>
+          <a class="btn btn-danger" href="{% url 'inicioVete' %}">Cancelar</a>
+        </th>
+      </tr>
+    </tbody>
+   
+    
+  </table>
+
 </form>
 
 {% endblock %}

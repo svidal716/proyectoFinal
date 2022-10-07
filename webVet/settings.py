@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AppVet'
+    'AppVet',
+    'Mensajeria'
+
 ]
 
 MIDDLEWARE = [
@@ -107,11 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Cordoba'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

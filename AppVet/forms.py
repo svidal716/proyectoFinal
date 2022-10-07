@@ -27,17 +27,22 @@ class VeterinarioForm(forms.Form):
 
     # creamos los campos del formulario:
 
-    nombreVetForm = forms.CharField(max_length=40, label="Nombre Veterinario")
+    nombreVetForm = forms.CharField(max_length=40, label="Nombre Veterinario", widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre', 'style': 'width: 300px;', 'class': 'form-control'}))
     apellidoVetForm = forms.CharField(
-        max_length=40, label="Apellido Veterinario")
+        max_length=40, label="Apellido Veterinario", widget=forms.TextInput(
+            attrs={'placeholder': 'Apellido', 'style': 'width: 300px;', 'class': 'form-control'}))
 
-    matriculaVetForm = forms.IntegerField(label="Matricula Veterinario")
+    matriculaVetForm = forms.IntegerField(label="Matricula Veterinario", widget=forms.TextInput(
+        attrs={'placeholder': 'Matricula', 'style': 'width: 150px;', 'class': 'form-control'}))
 
     fechaNacimientoVetForm = forms.DateField(
-        widget=NumberInput(attrs={'type': 'date'}), label="Fecha Nacimiento Veterinario")
+        widget=NumberInput(attrs={'type': 'date', 'class': 'form-control'}), label="Fecha Nacimiento Veterinario")
 
-    emailVetForm = forms.EmailField(label="E-Mail Veterinario")
-    telefonoVetForm = forms.IntegerField(label="Telefono Veterinario")
+    emailVetForm = forms.EmailField(label="E-Mail Veterinario", widget=forms.TextInput(
+        attrs={'placeholder': 'E-Mail', 'style': 'width: 300px;', 'class': 'form-control'}))
+    telefonoVetForm = forms.IntegerField(label="Telefono Veterinario", widget=forms.TextInput(
+        attrs={'placeholder': 'Telefono', 'style': 'width: 150px;', 'class': 'form-control'}))
 
 
 ####################################################################################################################################################
@@ -47,28 +52,36 @@ class VeterinarioForm(forms.Form):
 class PropietarioForm(forms.Form):
 
     nombrePropietarioForm = forms.CharField(
-        max_length=40, label="Nombre Dueño")
+        max_length=40, label="Nombre Dueño", widget=forms.TextInput(
+            attrs={'placeholder': 'Nombre', 'style': 'width: 300px;', 'class': 'form-control'}))
 
     apellidoPropietarioForm = forms.CharField(
-        max_length=40, label="Apellido Dueño")
+        max_length=40, label="Apellido Dueño", widget=forms.TextInput(
+            attrs={'placeholder': 'Apellido', 'style': 'width: 300px;', 'class': 'form-control'}))
 
     fechaNacimientoPropietarioForm = forms.DateField(
-        widget=NumberInput(attrs={'type': 'date'}), label="Fecha de Nacimiento Propietario")
+        widget=NumberInput(attrs={'type': 'date', 'class': 'form-control'}), label="Fecha de Nacimiento Propietario")
 
-    dniPropietarioForm = forms.IntegerField(label="DNI Dueño")
+    dniPropietarioForm = forms.IntegerField(label="DNI Dueño", widget=forms.TextInput(
+        attrs={'placeholder': 'DNI', 'style': 'width: 150px;', 'class': 'form-control'}))
 
-    emailPropietarioForm = forms.EmailField(label="E-Mail Veterinario")
+    emailPropietarioForm = forms.EmailField(label="E-Mail Veterinario", widget=forms.TextInput(
+        attrs={'placeholder': 'E-Mail', 'style': 'width: 300px;', 'class': 'form-control'}))
 
     direccionPropietarioForm = forms.CharField(
-        max_length=100, label="Domicilio Dueño")
+        max_length=100, label="Domicilio Dueño", widget=forms.TextInput(
+            attrs={'placeholder': 'Domicilio', 'style': 'width: 300px;', 'class': 'form-control'}))
 
     barrioPropietarioForm = forms.CharField(
-        max_length=40, label="Barrio Dueño")
+        max_length=40, label="Barrio Dueño", widget=forms.TextInput(
+            attrs={'placeholder': 'Barrio', 'style': 'width: 200px;', 'class': 'form-control'}))
 
     ciudadPropietarioForm = forms.CharField(
-        max_length=40, label="Ciudad Dueño")
+        max_length=40, label="Ciudad Dueño", widget=forms.TextInput(
+            attrs={'placeholder': 'Ciudad', 'style': 'width: 200px;', 'class': 'form-control'}))
 
-    telefonoPropietarioForm = forms.IntegerField(label="Telefono Dueño")
+    telefonoPropietarioForm = forms.IntegerField(label="Telefono Dueño", widget=forms.TextInput(
+        attrs={'placeholder': 'Telefono', 'style': 'width: 150px;', 'class': 'form-control'}))
 
 
 ####################################################################################################################################################
@@ -77,20 +90,19 @@ class PropietarioForm(forms.Form):
 # # Definimos el formulario para las Mascotas:
 class MascotaForm(forms.Form):
 
-    nombreMascotaForm = forms.CharField(max_length=40, label="Nombre Mascota")
-    razaMascotaForm = forms.CharField(max_length=40, label="Raza Mascota")
+    nombreMascotaForm = forms.CharField(max_length=40, label="Nombre Mascota", widget=forms.TextInput(
+        attrs={'placeholder': 'Nombre', 'style': 'width: 150px;', 'class': 'form-control'}))
+    razaMascotaForm = forms.CharField(max_length=40, label="Raza Mascota", widget=forms.TextInput(
+        attrs={'placeholder': 'Raza', 'style': 'width: 150px;', 'class': 'form-control'}))
 
     especieMascotaForm = forms.ChoiceField(
-        choices=especie_choice, label="Especie Macota", initial='Especie Macota', widget=forms.Select(), required=True)
+        choices=especie_choice, label="Especie Macota", initial='Especie Macota', widget=forms.Select(attrs={'placeholder': 'Especie', 'style': 'width: 150px;', 'class': 'form-control'}), required=True, )
 
     fechaNacimientoMascotaForm = forms.DateField(
-        widget=NumberInput(attrs={'type': 'date'}), label="Fecha de Nacimiento")
+        widget=NumberInput(attrs={'type': 'date', 'class': 'form-control'}), label="Fecha de Nacimiento")
 
-    apellidoPropietarioMascotaForm = forms.ModelChoiceField(label="Dueño de Mascota",
-                                                            queryset=DatosPropietario.objects.all())
-
-    imagenMascotaForm = forms.ImageField(label="Imagen Mascota")
-
+    apellidoPropietarioMascotaForm = forms.ModelChoiceField(
+        label="Dueño de Mascota", queryset=DatosPropietario.objects.all())
 
 ####################################################################################################################################################
 # -------------  FORMULARIO Historia Clinica  ------------------------------------------------------------------------------------------------------
@@ -146,17 +158,27 @@ class UserRegisterForm(UserCreationForm):
 class UserEditForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(
-        label="Ingrese Contraseña", widget=forms.PasswordInput)
+        label="Ingrese Contraseña", widget=forms.PasswordInput, error_messages={
+            'required': 'Porfavor Ingresa La contraseña'
+        })
     password2 = forms.CharField(
-        label="Repita Contraseña", widget=forms.PasswordInput)
-    first_name = forms.CharField(label='Modificar Nombre')
-    last_name = forms.CharField(label='Modificar Apellido')
-    avatar = forms.ImageField(label="Imagen")
+        label="Repita Contraseña", widget=forms.PasswordInput, error_messages={
+            'required': 'Porfavor Ingresa La contraseña'
+        })
+    first_name = forms.CharField(label='Modificar Nombre', error_messages={
+        'required': 'Porfavor Ingresa tu nombre'
+    })
+    last_name = forms.CharField(label='Modificar Apellido', error_messages={
+        'required': 'Porfavor Ingresa Tu Apellido'
+    })
+    # avatar = forms.ImageField(label="Imagen", error_messages={
+    #     'required': 'Porfavor Subi una imagen'
+    # })
 
     class Meta:
         model = User
         fields = ['email', 'password1', 'password2',
-                  'first_name', 'last_name', 'avatar']
+                  'first_name', 'last_name']
         help_texts = {k: "" for k in fields}
 
 

@@ -193,7 +193,7 @@
                       <a href="{% url 'editarPerfil' %}"> <i class="ti-settings"></i> Perfil </a>
                     </li>
                     <li>
-                      <a href="#"> <i class="ti-user"></i> Configuracion </a>
+                      <a href="{% url 'agregarAvatar' %}"> <i class="ti-user"></i> Configuracion </a>
                     </li>
 
                     <li>
@@ -233,7 +233,7 @@
                     <ul>
                       <li class="more-details">
                         <a href="{% url 'editarPerfil' %}"><i class="ti-user"></i>Perfil</a>
-                        <a href="#!"><i class="ti-settings"></i>Configuracion</a>
+                        <a href="{% url 'agregarAvatar' %}"><i class="ti-settings"></i>Configuracion</a>
                         <a href="{% url 'logout' %}"
                           ><i class="ti-layout-sidebar-left"></i>Logout</a
                         >
@@ -339,38 +339,50 @@
                             {% block contenido_que_cambia %}  
                             
                             <h2>Bienvendio {{ username }}</h2>
-
+                            <br>
+                            <h3>Seleccione la opcion deseada</h3>
+                            <br>
+                            <br>
+                            <br>
                             <br>
                             <table>
+                            <tr>
                             <td>
-                            <a href="{% url 'inicioMascota' %}">
-                              <button class="button button1">MASCOTAS</button>
+                            <a href="{% url 'inicioVete' %}">
+                              <button class="button button2">VETERINARIOS</button>
                             </a>
                           </td>
+                          <td>  
+                          <a href="{% url 'inicioClinica' %}">
+                              <button class="button button2">HISTORIA CLINICA</button>
+                            </a>
+                          </td>
+                        </tr>
                           <td>  
                           <a href="{% url 'inicioPropietario' %}">
-                              <button class="button button2">DUEÑOS</button>
-                            </a>
-                          </td>
-                          <td>  
-                          <a href="{% url 'inicioVete' %}">
-                              <button class="button button5">VETERINARIOS</button>
+                              <button class="button button5">CLIENTE</button>
                             </a>
                           </td>
                           <td>
-                            <a href="{% url 'inicioClinica' %}">
-                              <button class="button button5">HISTORIA CLINICA</button>
+                            <a href="{% url 'inicioMascota' %}">
+                              <button class="button button5">MASCOTAS</button>
                             </a>
                           </td>
                           <th>
+                            <tr>
                             <td>
                               <a href="{% url 'editarPerfil' %}">
                                 <button class="button button1">PERFIL</button>
                               </a>
                           </td>
-
-                          </th>
-
+                        
+                            <td>
+                              <a href="{% url 'inicioMsj' %}">
+                                <button class="button button1">INBOX</button>
+                              </a>
+                          </td>
+                        
+                        </tr> 
                           </table>
                             {% endblock %}
                               <div>

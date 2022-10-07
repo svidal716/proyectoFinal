@@ -1,0 +1,11 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Veterinario!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<form action="{% url 'inicioMsj' %}" method="GET">
+  <input name="usuario" id="usuario" />
+
+  <input type="submit" value="Buscar" />
+</form>
+
+{% endblock %} {% endblock %}

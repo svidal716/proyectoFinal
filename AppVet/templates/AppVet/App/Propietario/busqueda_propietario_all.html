@@ -1,31 +1,50 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Busqueda de Propietarios All!</h1>
 {% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">Se encontraron los Siguientes Clientes:</h2>
+<br />
 
-<h1>Resultado Busqueda</h1>
 {% if propietarios %}
 <table>
   <tr>
     <h3>
-      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px" style="font-family: cursive">
+        <p align="center">ID</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Nombre</p></th>
+      <th width="30" style="font-family: cursive">
+        <p align="center">Nombre</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Apellido</p></th>
+      <th width="30" style="font-family: cursive">
+        <p align="center">Apellido</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="20"><p align="center">Fecha de Nacimiento</p></th>
+      <th width="20" style="font-family: cursive">
+        <p align="center">Fecha de Nacimiento</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">DNI</p></th>
+      <th width="10" style="font-family: cursive"><p align="center">DNI</p></th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Email</p></th>
+      <th width="50" style="font-family: cursive">
+        <p align="center">Email</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Direccion</p></th>
+      <th width="50" style="font-family: cursive">
+        <p align="center">Direccion</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Barrio</p></th>
+      <th width="50" style="font-family: cursive">
+        <p align="center">Barrio</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Ciudad</p></th>
+      <th width="50" style="font-family: cursive">
+        <p align="center">Ciudad</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">Telefono</p></th>
+      <th width="10" style="font-family: cursive">
+        <p align="center">Telefono</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
       <th width="10">
         <p align="center"></p>
@@ -93,6 +112,13 @@
         </a>
       </p>
     </td>
+    <td width="50">
+      <p align="center">
+        <a class="btn btn-warning" href="{% url 'inicioPropietario' %}">Volver</a>
+      </p>
+    </td>
+  </tr>
+  <br />
   </tr>
 
   <br />

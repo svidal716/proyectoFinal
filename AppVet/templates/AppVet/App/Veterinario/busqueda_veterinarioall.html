@@ -1,24 +1,42 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Busqueda de Veterinario!</h1>
 {% endblock %} {% block contenido_que_cambia %}
-<h1>Resultado Busqueda</h1>
+<h2 style="font-family: cursive">
+  Se encontraron los Siguientes Veterinarios:
+</h2>
+<br />
+
 {% if veterinarios %}
 <table>
   <tr>
     <h3>
-      <th width="20px"><p align="center">ID</p></th>
+      <th width="20px" style="font-family: cursive">
+        <p align="center">ID</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Nombre</p></th>
+      <th width="30" style="font-family: cursive">
+        <p align="center">Nombre</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="30"><p align="center">Apellido</p></th>
+      <th width="30" style="font-family: cursive">
+        <p align="center">Apellido</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="20"><p align="center">Fecha de Nacimiento</p></th>
+      <th width="20" style="font-family: cursive">
+        <p align="center">Fecha de Nacimiento</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">Matricula</p></th>
+      <th width="10" style="font-family: cursive">
+        <p align="center">Matricula</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="50"><p align="center">Email</p></th>
+      <th width="50" style="font-family: cursive">
+        <p align="center">Email</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
-      <th width="10"><p align="center">Telefono</p></th>
+      <th width="10" style="font-family: cursive">
+        <p align="center">Telefono</p>
+      </th>
       <th width="20px"><p align="center"></p></th>
       <th width="10">
         <p align="center"></p>
@@ -67,6 +85,11 @@
         >
           Editar
         </a>
+      </p>
+    </td>
+    <td width="50">
+      <p align="center">
+        <a class="btn btn-warning" href="{% url 'inicioVete' %}">Volver</a>
       </p>
     </td>
   </tr>

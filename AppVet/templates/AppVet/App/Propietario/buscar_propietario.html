@@ -2,12 +2,41 @@
 <h1 class="mb-5">Busqueda de Propietarios!</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<form action="{% url 'buscarPropietario' %}" method="GET">
-  <input name="propietario" id="propietario" />
 
-  <input type="submit" value="Buscar" />
+<h2 style="font-family: cursive"> Busqueda de Clientes!</h2>
+<br>
+<br>
+<form action="{% url 'buscarPropietario' %}" method="GET">
+  <table>
+    <tbody>
+      <tr>
+        <td><h4 style="font-family: cursive"> Ingrese Nombre del Cliente: </h4></td>
+        <th>
+          <input name="propietario" id="propietario" class="form-control" />
+        </th>
+        <th>
+          <th><input type="submit" value="Buscar" class="btn btn-success" /></th>
+        </th>
+      </tr>
+      <tr>
+       
+      </tr>
+    </tbody>
+  </table>
 </form>
 <br />
-<a class="btn btn-warning" href="{% url 'busquedaPropAll' %}">Ver Todos</a>
-
+<table>
+  <tbody>
+    <tr>
+      <td> <a class="btn btn-warning" href="{% url 'busquedaPropAll' %}">Ver Todos</a></td>
+      <th>
+        <a class="btn btn-danger" href="{% url 'inicioPropietario' %}">Volver</a>
+      </th>
+    </tr>
+  </tbody>
+ 
+  
+</table>
 {% endblock %}
+
+

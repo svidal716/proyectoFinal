@@ -1,7 +1,9 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Agregar una Mascota</h1>
 {% endblock %} {% block contenido_que_cambia %}
-
+<h2 style="font-family: cursive">Ingrese los datos de la nueva Mascota:</h2>
+<br />
+<br />
 <form
   action="{% url 'agregarMascota' %}"
   method="POST"
@@ -12,7 +14,25 @@
   <table>
     {{ formularioMascotas.as_table }}
   </table>
-  <input type="submit" value="Agregar" />
+  <br />
+  <br />
+  <table>
+    <tr>
+      <td></td>
+      <th>
+        <p align="center">
+          <input type="submit" class="btn btn-success" value="Agregar" />
+        </p>
+      </th>
+      <th>
+        <p align="center">
+          <a class="btn btn-warning" href="{% url 'inicioMascota' %}">
+            Volver
+          </a>
+        </p>
+      </th>
+    </tr>
+  </table>
 </form>
 
 {% endblock %}

@@ -54,13 +54,11 @@ class DatosMascota(models.Model):
 
     nombreMascota = models.CharField(max_length=30)
     razaMascota = models.CharField(max_length=50)
-    # ----------------------------modificar lista
+
     especieMascota = models.CharField(max_length=30)
     fechaNacimientoMascota = models.DateField()
     apellidoPropietarioMascota = models.ForeignKey(
         DatosPropietario, on_delete=models.CASCADE, null=True)
-    imagenMascota = models.ImageField(
-        upload_to='mascotas', null=True, blank=True)
 
     def __str__(self):
         return self.nombreMascota
@@ -103,11 +101,3 @@ class Avatar(models.Model):
 
     def __str__(self):
         return self.user.username
-
-
-# class ImagenMascota(models.Model):
-#     mascota = models.OneToOneField(DatosMascota, on_delete=models.CASCADE)
-#     imagen = models.ImageField(upload_to='mascotas', null=True, blank=True)
-
-#     def __str__(self):
-#         return self.mascota.nombreMascota

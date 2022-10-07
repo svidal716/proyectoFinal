@@ -1,0 +1,53 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Inboxs!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h1>Lista de Mensajes para {{ username }}</h1>
+{% if busquedaMensaje %}
+<table>
+  <tr>
+    <h3>
+      <th width="30"><p align="center">Fecha Envio</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Hora Envio</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="20"><p align="center">Enviado Por</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="10"><p align="center">Mensaje</p></th>
+    </h3>
+  </tr>
+
+  {% for mensaje in busquedaMensaje %}
+
+  <tr>
+    <h3>
+      <td width="20"><p align="center">{{mensaje.fechaMensaje}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{mensaje.horaMensaje}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50">
+        <p align="center">{{mensaje.usuarioOrigen}}</p>
+      </td>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50"><p align="center">{{mensaje.mensaje}}</p></td>
+      <th width="20px"><p align="center"></p></th>
+    </h3>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-success"
+          href="{% url 'mensajes'%}"
+        >
+          Responder
+        </a>
+      </p>
+    </td>
+  </tr>
+  </tr>
+
+  <br />
+  {% endfor %} {% else %}
+</table>
+<p>No se encontraron Veterinarios</p>
+
+{% endif %} {% endblock %}

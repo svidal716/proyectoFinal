@@ -2,12 +2,40 @@
 <h1 class="mb-5">Busqueda de Veterinario!</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<form action="{% url 'buscarVeterinario' %}" method="GET">
-  <input name="veterinario" id="veterinario" />
 
-  <input type="submit" value="Buscar" />
+<h2 style="font-family: cursive"> Busqueda de Veterinarios!</h2>
+<br>
+<br>
+
+<form action="{% url 'buscarVeterinario' %}" method="GET">
+  <table>
+    <tbody>
+      <tr>
+        <td><h4 style="font-family: cursive"> Ingrese Nombre del Veterinario: </h4></td>
+        <th>
+          <input name="veterinario" id="veterinario" class="form-control" />
+        </th>
+        <th>
+          <th><input type="submit" value="Buscar" class="btn btn-success" /></th>
+        </th>
+      </tr>
+      <tr>
+       
+      </tr>
+    </tbody>
+  </table>
 </form>
 <br />
-<a class="btn btn-warning" href="{% url 'busquedaVeteAll' %}">Ver Todos</a>
-
+<table>
+  <tbody>
+    <tr>
+      <td> <a class="btn btn-warning" href="{% url 'busquedaVeteAll' %}">Ver Todos</a></td>
+      <th>
+        <a class="btn btn-danger" href="{% url 'inicioVete' %}">Volver</a>
+      </th>
+    </tr>
+  </tbody>
+ 
+  
+</table>
 {% endblock %}
