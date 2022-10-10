@@ -13,7 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from AppVet.models import *
 from AppVet.choices import *
-
+from ckeditor.widgets import CKEditorWidget
 
 especieMascota = ["Perro", "Gato", "Otra"]
 sexoChoice = [("Macho", "Macho"), "Hembra", "Hembra"]
@@ -164,11 +164,9 @@ class HistoriaClinicaForm(forms.Form):
     temperaturaMascotaForm = forms.FloatField(label="Temperatura Mascota", widget=forms.TextInput(
         attrs={'placeholder': 'Temperatura', 'style': 'width: 150px;', 'class': 'form-control'}))
     motivoConsultaForm = forms.CharField(
-        max_length=250, label="Motivo Consulta", widget=forms.TextInput(
-            attrs={'placeholder': 'Motivo', 'style': 'width: 450px;', 'class': 'form-control'}))
+        max_length=250, label="Motivo Consulta", widget=CKEditorWidget())
     diagnosticoMascotaForm = forms.CharField(
-        max_length=350, label="Diagnostico Consulta", widget=forms.TextInput(
-            attrs={'placeholder': 'Diagnostico', 'cols': 40, 'rows': 10, 'style': 'width: 450px;', 'class': 'form-control'}))
+        max_length=350, label="Diagnostico Consulta", widget=CKEditorWidget())
     veterinarioMascotaForm = forms.ModelChoiceField(label="Veterinario",
                                                     queryset=DatosVeterinarios.objects.all(), widget=forms.Select(attrs={'style': 'width: 150px;', 'class': 'form-control'}))
 

@@ -78,7 +78,7 @@ urlpatterns = [
          name="agregarClinica"),
 
     path('busquedaClinica/', views.busquedaClinica, name="busquedaClinica"),
-    path('buscarClinica/', views.buscarClinica, name="buscarClinica"),
+    path('historiaClinica/<id>', views.historiaClinica, name="historiaClinica"),
 
     path('busquedaClinicaAll/', views.busquedaClinicaAll,
          name="busquedaClinicaAll"),

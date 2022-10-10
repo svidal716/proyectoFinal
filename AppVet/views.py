@@ -556,18 +556,14 @@ def busquedaClinica(request):
 
 
 @ login_required
-def buscarClinica(request):
+def historiaClinica(request, id):
 
-    if request.GET["mascota"]:
+    hc = id
+    print(hc)
+    busquedaHistoriaClinica = HistoriaClinica.objects.filter(
+        id=hc)  # Filtramos por nombre de la Mascota
 
-        hclinica = request.GET["mascota"]
-        busquedaHistoriaClinica = HistoriaClinica.objects.filter(
-            nombreMascota=hclinica)  # Filtramos por nombre de la Mascota
-
-        return render(request, "AppVet/App/Mascota/hclinica/resultado_busqueda_hclinica.html", {"username": obtenerUser(request), "busquedaHistoriaClinica": busquedaHistoriaClinica, "avatar": obtenerAvatar(request)})
-
-    else:
-        return render(request, "AppVet/App/Mascota/hclinica/resultado_busqueda_hclinica.html", {"username": obtenerUser(request), "mensaje": "Ingresa el Nombre de la Mascota:", "avatar": obtenerAvatar(request)})
+    return render(request, "AppVet/App/Mascota/hclinica/historia_clinica.html", {"username": obtenerUser(request), "busquedaHistoriaClinica": busquedaHistoriaClinica, "avatar": obtenerAvatar(request)})
 
 
 @ login_required

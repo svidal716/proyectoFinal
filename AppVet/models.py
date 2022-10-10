@@ -3,7 +3,7 @@ from django.db import models
 from traitlets import default
 from AppVet.choices import *
 from django.contrib.auth.models import User
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 # Definimos el Model Veterinarios donde se agregaran los veterinarios que trabajan.
@@ -82,8 +82,11 @@ class HistoriaClinica(models.Model):
     vacunasMascotas = models.CharField(max_length=100)
     comidaMascota = models.CharField(max_length=100)
     temperaturaMascota = models.FloatField()
-    motivoConsulta = models.CharField(max_length=250)
-    diagnosticoMascota = models.CharField(max_length=350)
+    # motivoConsulta = models.CharField(max_length=250)
+    # diagnosticoMascota = models.CharField(max_length=350)
+    motivoConsulta = RichTextField(blank=True, null=True)
+    diagnosticoMascota = RichTextField(blank=True, null=True)
+
     veterinarioMascota = models.ForeignKey(
         DatosVeterinarios, on_delete=models.CASCADE, null=True)
 

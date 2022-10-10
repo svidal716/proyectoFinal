@@ -1,0 +1,82 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Busqueda de Mascotas!</h1>
+{% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">
+  Historia Clinica:
+</h2>
+<br />
+{% if busquedaHistoriaClinica %}
+
+{% for hc in busquedaHistoriaClinica %}
+<table>
+   <tbody style="font-family: cursive">
+    <tr>
+      <td width="40px"><p aling="left">ID</p></td>
+      <td width="20px"></td>
+      <td width="20px"><p aling="center">{{hc.id}}</p></td>
+      
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Fecha de Consulta</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.fechaConsulta}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Nombre Mascota</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.nombreMascota}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Sexo Mascota</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.sexoMascota}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Peso Mascota (kg)</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.pesoMascota}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Enfermedad Mascota</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.enfermedadPreviaMascota}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Vacunas Mascota</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.vacunasMascotas}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Temperatura Mascota (°C)</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.temperaturaMascota}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Motivo de Consulta</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.motivoConsulta | safe}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Diagnostico Consulta</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.diagnosticoMascota | safe}}</p></td>
+    </tr>
+    <tr>
+      <td width="80px"><p aling="left">Veterinario Mascota</p></td>
+      <td width="20px"></td>
+      <td width="40px"><p aling="center">{{hc.veterinarioMascota}}</p></td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% endfor %} {% else %}
+  </table>
+<p>No se encontraron Mascotas</p>
+<p align="center">
+  <a class="btn btn-warning" href="{% url 'inicioClinica' %}">
+    Volver
+  </a>
+</p>
+
+{% endif %} {% endblock %}

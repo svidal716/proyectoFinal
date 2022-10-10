@@ -17,18 +17,7 @@
       <th width="20px"><p align="center"></p></th>
       <th width="30"style="font-family: cursive"><p align="center">Nombre</p></th>
       <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Sexo</p></th>
-      <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Peso</p></th>
-      <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Enfermedades</p></th>
-      <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Vacunas</p></th>
-      <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Motivo Consulta</p></th>
-      <th width="10">
-      <th width="30"style="font-family: cursive"><p align="center">Diagnostico</p></th>
-      <th width="10">
+   
       <th width="30"style="font-family: cursive"><p align="center">Veterinario</p></th>
       <th width="10">
       <p align="center"></p>
@@ -50,27 +39,17 @@
     <td width="50">
       <p align="center">{{clinica.nombreMascota}}</p>
     </td>
-    <th width="20px"><p align="center"></p></th>
-    <td width="50">
-      <p align="center">{{clinica.sexoMascota}}</p>
-    </td>
-    <th width="20px"><p align="center"></p></th>
-    <td width="50"><p align="center">{{clinica.pesoMascota}}</p></td>
-    <th width="20px"><p align="center"></p></th>
-    <td width="50">
-      <p align="center">{{clinica.enfermedadPreviaMascota}}</p>
-    </td>
-    <th width="20px"><p align="center"></p></th>
-    <td width="50"><p align="center">{{clinica.vacunasMascotas}}</p></td>
-    <th width="20px"><p align="center"></p></th>
-    <td width="50px"><p align="center">{{clinica.motivoConsulta}}</p></td>
-    <th width="50px"><p align="center"></p></th>
-    <td width="50px"><p align="center">{{clinica.diagnosticoMascota}}</p></td>
+
     <th width="50px"><p align="center"></p></th>
     <td width="50"><p align="center">{{clinica.veterinarioMascota}}</p></td>
     <th width="20px"><p align="center"></p></th>
         <th width="20px"><p align="center"></p></th>
-    <td width="50">
+        <td width="50">
+          <p align="center">
+            <a class="btn btn-success" href="{% url 'historiaClinica' clinica.id %}">Ver Historia Clinica</a>
+          </p>
+        </td>
+        <td width="50">
       <p align="center">
         <a
           class="btn btn-danger"
@@ -80,13 +59,13 @@
         </a>
       </p>
     </td>
-    
+
     <td width="50">
       <p align="center">
         <a class="btn btn-warning" href="{% url 'inicioClinica' %}">Volver</a>
       </p>
     </td>
-  </tr>
+
 
   <br />
   {% endfor %} {% else %}
