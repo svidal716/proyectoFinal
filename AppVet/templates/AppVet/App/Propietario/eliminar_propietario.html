@@ -1,5 +1,12 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1>Eliminar Veterinarios de la Base de Datos!</h1>
 {% endblock %} {% block contenido_que_cambia %}
-<h3>Se elimino correctamente</h3>
+<h2 style="font-family: cursive">Eliminar Cliente:</h2>
+<br />
+<br />
+<h4 style="font-family: cursive">Se elimino correctamente</h4>
+
+<p align="center">
+  <a class="btn btn-warning" href="{% url 'inicioPropietario' %}">Volver</a>
+</p>
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Inboxs!</h1>
 {% endblock %} {% block contenido_que_cambia %}
-<h2 style="font-family: cursive">Seccion Mensajeria:</h2>
+<h2 style="font-family: cursive">Seccion Contacto WEB:</h2>
 <br />
 <br />
-<h4 style="font-family: cursive">Lista de Mensajes para {{ username }}:</h4>
-{% if busquedaMensaje %}
+<h4 style="font-family: cursive">Lista de Consultas WEB:</h4>
+{% if busquedaMensajeContacto %}
 <table>
   <tr>
     <h3>
@@ -15,11 +15,13 @@
       <th width="20px"><p align="center"></p></th>
       <th width="20"><p align="center">Enviado Por</p></th>
       <th width="20px"><p align="center"></p></th>
+      <th width="30"><p align="center">Telefono Contacto</p></th>
+      <th width="20px"><p align="center"></p></th>
       <th width="10"><p align="center">Mensaje</p></th>
     </h3>
   </tr>
 
-  {% for mensaje in busquedaMensaje %}
+  {% for mensaje in busquedaMensajeContacto %}
 
   <tr>
     <h3>
@@ -28,24 +30,16 @@
       <td width="50"><p align="center">{{mensaje.horaMensaje}}</p></td>
       <th width="20px"><p align="center"></p></th>
       <td width="50">
-        <p align="center">{{mensaje.usuarioOrigen}}</p>
+        <p align="center">{{mensaje.nombreContacto}}</p>
       </td>
       <th width="20px"><p align="center"></p></th>
-      <td width="50px"><p align="center">{{mensaje.mensaje}}</p></td>
+      <td width="50px"><p align="center">{{mensaje.telefonoContacto}}</p></td>
+      <th width="100px"><p align="center"></p></th>
+      <th width="20px"><p align="center"></p></th>
+      <td width="50px"><p align="center">{{mensaje.mensajeContacto}}</p></td>
       <th width="100px"><p align="center"></p></th>
     </h3>
-    <td width="50">
-      <p align="center">
-        <a
-          class="btn btn-success"
-          href="{% url 'mensajes'%}"
-        >
-          Responder
-        </a>
-      </p>
-    </td>
-    <td width="50">
-      <p align="center">
+       <p align="center">
         <a
           class="btn btn-danger"
           href="{% url 'inicioMsj'%}"

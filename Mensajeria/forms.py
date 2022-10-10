@@ -17,8 +17,6 @@ from Mensajeria.models import *
 class MensajeriaForm(forms.Form):
 
     mensajeForm = forms.CharField(
-        max_length=500, label="Mensaje", widget=forms.Textarea(attrs={'cols': 80, 'rows': 10}))
+        max_length=500, label="Mensaje", widget=forms.Textarea(attrs={'cols': 80, 'rows': 10, 'placeholder': 'Escriba el Mensaje', 'class': 'form-control'}))
     usuarioDestinoForm = forms.ModelChoiceField(label="Destinatario",
-                                                queryset=User.objects.all(), initial="")
-    # usuarioOrigenForm = forms.ModelChoiceField(label="Firma",
-    #                                            queryset=User.objects.all())
+                                                queryset=User.objects.all(), initial="", widget=forms.Select(attrs={'style': 'width: 150px;', 'class': 'form-control'}))

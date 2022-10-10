@@ -10,14 +10,14 @@ urlpatterns = [
     path("", views.index, name="index"),
     path('about/', views.about, name="about"),
     path('services/', views.services, name="services"),
-    path('contact/', views.contact, name="contact"),
-    #path('inicio/', views.inicio, name="inicio"),
+
 
 
     # -------------- URL APP ADMINISTRACION-------------------------
 
     path('app_admin/', views.appAdmin, name="appAdmin"),
     path('login/', views.login_request, name="Login"),
+    path('inicioCreadores/', views.inicioCreadores, name="inicioCreadores"),
 
 
     # -------------- URL VETERINARIO ---------------------------
@@ -76,15 +76,14 @@ urlpatterns = [
     path('agregarClinica/', views.agregarClinica,
          name="agregarClinica"),
 
-    #     path('busquedaMascota/', views.busquedaMascota,
-    #          name="busquedaMascota"),
-    #     path('buscarMascota/', views.buscarMascota, name="buscarMascota"),
+    path('busquedaClinica/', views.busquedaClinica, name="busquedaClinica"),
+    path('buscarClinica/', views.buscarClinica, name="buscarClinica"),
 
-    #     path('busquedaMascotaAll/', views.busquedaMascotaAll,
-    #          name="busquedaMascotaAll"),
+    path('busquedaClinicaAll/', views.busquedaClinicaAll,
+         name="busquedaClinicaAll"),
+    path('eliminarClinica/<id>', views.eliminarClinica,
+         name="eliminarClinica"),
 
-    #     path('modificarMascota/<id>', views.modificarMascota,
-    #          name="modificarMascota"),
 
 
     # login register logout

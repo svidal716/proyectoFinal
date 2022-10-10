@@ -4,6 +4,7 @@ from msilib.schema import Control
 from sys import maxsize
 from tkinter import Widget
 from tkinter.tix import Tree
+from attr import attr
 from django import forms
 from django.conf import settings
 from AppVet.choices import *
@@ -11,10 +12,11 @@ from django.forms.widgets import NumberInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from AppVet.models import *
+from AppVet.choices import *
 
 
 especieMascota = ["Perro", "Gato", "Otra"]
-sexoMascota = ["Macho", "Hembra"]
+sexoChoice = [("Macho", "Macho"), "Hembra", "Hembra"]
 vacunaMascota = ["Primovacunación", "Polivalente", "Ref Polivalente", "Rabia"]
 
 ####################################################################################################################################################
@@ -113,29 +115,35 @@ class MascotaForm(forms.Form):
 class HistoriaClinicaForm(forms.Form):
 
     fechaConsultaForm = forms.DateField(
-        widget=NumberInput(attrs={'type': 'date'}), label="Fecha de Consulta")
+        widget=NumberInput(attrs={'type': 'date', 'style': 'width: 150px;', 'class': 'form-control'}), label="Fecha de Consulta")
     nombreMascotaForm = forms.ModelChoiceField(label="Nombre de Mascota",
-                                               queryset=DatosMascota.objects.all())
-    sexoMascotaForm = forms.ChoiceField(label="Sexo Macota", widget=forms.Select(
-        choices=sexo_choice), required=True)
+                                               queryset=DatosMascota.objects.all(), widget=forms.Select(attrs={'placeholder': 'Sexo', 'style': 'width: 150px;', 'class': 'form-control'}))
+    sexoMascotaForm = forms.ChoiceField(label="Sexo Macota", choices=sexo_choice, widget=forms.Select(
+        attrs={'placeholder': 'Sexo', 'style': 'width: 150px;', 'class': 'form-control'}), required=True)
 
-    pesoMascotaForm = forms.FloatField(label="Peso Mascota (kg)")
+    pesoMascotaForm = forms.FloatField(label="Peso Mascota (kg)", widget=forms.TextInput(
+        attrs={'placeholder': 'Peso', 'style': 'width: 150px;', 'class': 'form-control'}))
 
     enfermedadPreviaMascotaForm = forms.CharField(
-        max_length=100, label="Enfermedades Previas")
+        max_length=100, label="Enfermedades Previas", widget=forms.TextInput(
+            attrs={'placeholder': 'Enfermedades', 'style': 'width: 250px;', 'class': 'form-control'}))
 
-    vacunasMascotasForm = forms.ChoiceField(label="Vacunas Macota", widget=forms.Select(
-        choices=vacunas_choice), required=True)
+    vacunasMascotasForm = forms.ChoiceField(label="Vacunas Macota", choices=vacunas_choice, widget=forms.Select(
+        attrs={'placeholder': 'Vacunas', 'style': 'width: 250px;', 'class': 'form-control'}), required=True)
 
     comidaMascotaForm = forms.CharField(
-        max_length=40, label="Alimento Mascota")
-    temperaturaMascotaForm = forms.FloatField(label="Temperatura Mascota")
+        max_length=40, label="Alimento Mascota", widget=forms.TextInput(
+            attrs={'placeholder': 'Alimento', 'style': 'width: 250px;', 'class': 'form-control'}))
+    temperaturaMascotaForm = forms.FloatField(label="Temperatura Mascota", widget=forms.TextInput(
+        attrs={'placeholder': 'Temperatura', 'style': 'width: 150px;', 'class': 'form-control'}))
     motivoConsultaForm = forms.CharField(
-        max_length=250, label="Motivo Consulta")
+        max_length=250, label="Motivo Consulta", widget=forms.TextInput(
+            attrs={'placeholder': 'Motivo', 'style': 'width: 450px;', 'class': 'form-control'}))
     diagnosticoMascotaForm = forms.CharField(
-        max_length=350, label="Diagnostico Consulta")
+        max_length=350, label="Diagnostico Consulta", widget=forms.TextInput(
+            attrs={'placeholder': 'Diagnostico', 'cols': 40, 'rows': 10, 'style': 'width: 450px;', 'class': 'form-control'}))
     veterinarioMascotaForm = forms.ModelChoiceField(label="Veterinario",
-                                                    queryset=DatosVeterinarios.objects.all())
+                                                    queryset=DatosVeterinarios.objects.all(), widget=forms.Select(attrs={'style': 'width: 150px;', 'class': 'form-control'}))
 
 
 ####################################################################################################################################################
@@ -156,24 +164,22 @@ class UserRegisterForm(UserCreationForm):
 
 
 class UserEditForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.TextInput(
+        attrs={'placeholder': 'E-Mail', 'style': 'width: 250px;', 'class': 'form-control'}))
     password1 = forms.CharField(
-        label="Ingrese Contraseña", widget=forms.PasswordInput, error_messages={
+        label="Ingrese Contraseña", widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña', 'style': 'width: 200px;', 'class': 'form-control'}), error_messages={
             'required': 'Porfavor Ingresa La contraseña'
         })
     password2 = forms.CharField(
-        label="Repita Contraseña", widget=forms.PasswordInput, error_messages={
+        label="Repita Contraseña", widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña', 'style': 'width: 200px;', 'class': 'form-control'}), error_messages={
             'required': 'Porfavor Ingresa La contraseña'
         })
     first_name = forms.CharField(label='Modificar Nombre', error_messages={
         'required': 'Porfavor Ingresa tu nombre'
-    })
+    }, widget=forms.TextInput(attrs={'placeholder': 'Nombre', 'style': 'width: 200px;', 'class': 'form-control'}))
     last_name = forms.CharField(label='Modificar Apellido', error_messages={
         'required': 'Porfavor Ingresa Tu Apellido'
-    })
-    # avatar = forms.ImageField(label="Imagen", error_messages={
-    #     'required': 'Porfavor Subi una imagen'
-    # })
+    }, widget=forms.TextInput(attrs={'placeholder': 'Apellido', 'style': 'width: 200px;', 'class': 'form-control'}))
 
     class Meta:
         model = User

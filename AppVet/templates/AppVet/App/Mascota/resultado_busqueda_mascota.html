@@ -1,8 +1,9 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Busqueda de Mascotas!</h1>
 {% endblock %} {% block contenido_que_cambia %}
-
-<h1>Resultado Busqueda</h1>
+<h2 style="font-family: cursive"> Busqueda de Mascotas!</h2>
+<br>
+<br>
 {% if busquedaMascota %}
 <table>
   <tr>
@@ -24,7 +25,7 @@
       </th>
     </h3>
   </tr>
-  {% for mascota in mascotas %}
+  {% for mascota in busquedaMascota %}
   <tr>
     <h3>
       <td width="20"><p align="center">{{mascota.id}}</p></td>
@@ -63,10 +64,22 @@
           </a>
         </p>
       </td>
+      <td width="50">
+        <p align="center">
+          <a class="btn btn-warning" href="{% url 'inicioMascota' %}">
+            Volver
+          </a>
+        </p>
+      </td>
     </tr>
     <br />
     {% endfor %} {% else %}
   </table>
 <p>No se encontraron Mascotas</p>
+<p align="center">
+  <a class="btn btn-warning" href="{% url 'inicioMascota' %}">
+    Volver
+  </a>
+</p>
 
 {% endif %} {% endblock %}

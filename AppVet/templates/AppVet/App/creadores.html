@@ -1,0 +1,57 @@
+{% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">Agregar una Mascota</h1>
+{% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">Informacion sobre los Developers</h2>
+<br />
+<br />
+<table style="font-family: cursive">
+  <tbody>
+    <tr>
+      <td width="20px"><p align="center">Autores</p></td>
+      <th width="20px"><p align="center">Santiago Vidal</p></th>
+      <th width="20px"><p align="center">Maximiliano Gallegillo</p></th>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center">Edad</p></th>
+      <td width="20px"><p align="center">33</p></td>
+      <td width="20px"><p align="center">40</p></td>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center">Profesion</p></th>
+      <td width="20px"><p align="center">Telecommunications Engineer</p></td>
+      <td width="20px"><p align="center">Telecommunications Engineer</p></td>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center">Empleo</p></th>
+      <td width="20px"><p align="center">Nokia</p></td>
+      <td width="20px"><p align="center">Nokia</p></td>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center">Provincia</p></th>
+      <td width="20px"><p align="center">Córdoba</p></td>
+      <td width="20px"><p align="center">Córdoba</p></td>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center">Contacto</p></th>
+      <td width="20px">
+        <p align="center">maximiliano.gallegillo@gmail.com</p>
+      </td>
+      <td width="20px"><p align="center">santiago.vidal@gmail.com</p></td>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center"></p></th>
+    </tr>
+    <tr>
+      <th width="20px"><p align="center"></p></th>
+    </tr>
+    <tr>
+      <th width="20px">
+        <p align="center">
+          <a class="btn btn-warning" href="{% url 'appAdmin' %}"> Volver </a>
+        </p>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

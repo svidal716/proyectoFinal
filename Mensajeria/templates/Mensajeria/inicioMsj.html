@@ -1,11 +1,27 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Busqueda de Veterinario!</h1>
 {% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">Seccion Mensajeria:</h2>
+<br />
+<br />
+<th>
+  <tr>
+    <td>
+      <a href="{% url 'verMensajes' %}">
+        <button class="button button1">Ver Mensajes</button>
+      </a>
+    </td>
 
-<form action="{% url 'inicioMsj' %}" method="GET">
-  <input name="usuario" id="usuario" />
-
-  <input type="submit" value="Buscar" />
-</form>
-
-{% endblock %} {% endblock %}
+    <td>
+      <a href="{% url 'mensajes' %}">
+        <button class="button button2">Enviar Mensaje</button>
+      </a>
+    </td>
+    <td>
+      <a href="{% url 'appAdmin' %}">
+        <button class="button button2">Volver</button>
+      </a>
+    </td>
+  </tr>
+</th>
+{% endblock %}

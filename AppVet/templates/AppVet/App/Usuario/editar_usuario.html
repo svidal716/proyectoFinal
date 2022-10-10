@@ -1,14 +1,15 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Administracion Panel Usuarios</h1>
 {% endblock %} {% block contenido_que_cambia %}
-  <h1 class="mb-5">Editar el Perfil del Usuario: {{ usuario }}</h1>
-  <h3>{{ mensaje }}</h3>
+<h2 style="font-family: cursive">Editar el perfil de {{ usuario }} </h2>
+<br />
+<br />
   <form action="{% url 'editarPerfil' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
   
       <table>
           {{ formulario.as_table }}
       </table>
-      <button type="submit">Guardar</button>
+      <button class="btn btn-success" type="submit">Guardar</button>
   </form>
 
 

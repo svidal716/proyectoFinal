@@ -1,5 +1,6 @@
 from tkinter import CASCADE
 from django.db import models
+from traitlets import default
 from AppVet.choices import *
 from django.contrib.auth.models import User
 
@@ -74,7 +75,7 @@ class HistoriaClinica(models.Model):
 
     fechaConsulta = models.DateField()
     nombreMascota = models.ForeignKey(
-        DatosMascota, on_delete=models.CASCADE, null=True)
+        DatosMascota, on_delete=models.CASCADE, null=True, )
     sexoMascota = models.CharField(max_length=30)
     pesoMascota = models.FloatField()
     enfermedadPreviaMascota = models.CharField(max_length=250)

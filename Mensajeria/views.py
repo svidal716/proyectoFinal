@@ -12,6 +12,12 @@ from django.urls import reverse_lazy
 @login_required
 def inicioMsj(request):
 
+    return render(request, "Mensajeria/inicioMsj.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
+
+
+@login_required
+def verMensajes(request):
+
     usuario = request.user
     busquedaMensaje = Mensajeria.objects.filter(
         usuarioDestino=usuario)  # Filtramos por nombre de Veterinario
@@ -31,7 +37,7 @@ def mensajes(request):
             mensaje = Mensajeria(mensaje=info['mensajeForm'],
                                  usuarioDestino=info['usuarioDestinoForm'])
             mensaje.save()
-            return render(request, "Mensajeria/mensajes.html", {"username": obtenerUser(request), "mensaje": "Vete Creado"}, {"avatar": obtenerAvatar(request)})
+            return render(request, "Mensajeria/mensajeEnviado.html", {"username": obtenerUser(request), "mensaje": "Su mensaje se ha enviado.", "avatar": obtenerAvatar(request)})
     else:
         formularioMensaje = MensajeriaForm()
         return render(request, "Mensajeria/mensajes.html", {"username": obtenerUser(request), "formularioMensaje": formularioMensaje, "avatar": obtenerAvatar(request)})

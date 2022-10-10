@@ -1,36 +1,103 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
-<h1 class="mb-5">Busqueda de Veterinario!</h1>
+<h1 class="mb-5">Busqueda de Mascotas!</h1>
 {% endblock %} {% block contenido_que_cambia %}
 
-<h1>Resultado Busqueda</h1>
-{% if veterinarios %}
-<ul>
-  {% for veterinario in veterinarios %}
+<h2 style="font-family: cursive">
+  Se encontraron las siguientes Historias Clinicas:
+</h2>
+<br />
 
-  <h4>
-    {{veterinario.id}} - {{veterinario.nombreVet}}, {{veterinario.apellidoVet}}.
-    {{veterinario.fechaNacimientoVet}} {{veterinario.matriculaVet}}
-    {{veterinario.emailVet}} {{veterinario.telefonoVet}}
-    <a
-      class="btn btn-danger"
-      href="{% url 'eliminarVeterinario' veterinario.id %}"
-    >
-      Eliminar
-    </a>
-    <a
-      class="btn btn-success"
-      href="{% url 'modificarVeterinario' veterinario.id %}"
-    >
-      Editar
-    </a>
-  </h4>
+{% if hclinica %}
+<table>
+  <tr>
+    <h3>
+      <th width="20px"style="font-family: cursive"><p align="center">ID</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Fecha Consulta</p></th>
+      <th width="20px"><p align="center"></p></th>
+      <th width="30"style="font-family: cursive"><p align="center">Nombre</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Sexo</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Peso</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Enfermedades</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Vacunas</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Motivo Consulta</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Diagnostico</p></th>
+      <th width="10">
+      <th width="30"style="font-family: cursive"><p align="center">Veterinario</p></th>
+      <th width="10">
+      <p align="center"></p>
+      </th>
+      <th width="10">
+        <p align="center"></p>
+      </th>
+    </h3>
+  </tr>
+  {% for clinica in hclinica %}
+  <tr>
+  <h3>
+    <td width="20"><p align="center">{{clinica.id}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{clinica.fechaConsulta}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{clinica.nombreMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{clinica.sexoMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50"><p align="center">{{clinica.pesoMascota}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">{{clinica.enfermedadPreviaMascota}}</p>
+    </td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50"><p align="center">{{clinica.vacunasMascotas}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+    <td width="50px"><p align="center">{{clinica.motivoConsulta}}</p></td>
+    <th width="50px"><p align="center"></p></th>
+    <td width="50px"><p align="center">{{clinica.diagnosticoMascota}}</p></td>
+    <th width="50px"><p align="center"></p></th>
+    <td width="50"><p align="center">{{clinica.veterinarioMascota}}</p></td>
+    <th width="20px"><p align="center"></p></th>
+        <th width="20px"><p align="center"></p></th>
+    <td width="50">
+      <p align="center">
+        <a
+          class="btn btn-danger"
+          href="{% url 'eliminarClinica' clinica.id %}"
+        >
+          Eliminar
+        </a>
+      </p>
+    </td>
+    
+    <td width="50">
+      <p align="center">
+        <a class="btn btn-warning" href="{% url 'inicioClinica' %}">Volver</a>
+      </p>
+    </td>
+  </tr>
 
   <br />
-  {% endfor %}
-</ul>
+  {% endfor %} {% else %}
+</table>
 
-{% else %}
 
-<p>No se encontraron Veterinarios</p>
+
+<h4 style="font-family: cursive">No se encontraron Historias Clinicas!</h4>
+<br>
+<p align="center">
+  <a class="btn btn-warning" href="{% url 'inicioClinica' %}">Volver</a>
+</p>
 
 {% endif %} {% endblock %}

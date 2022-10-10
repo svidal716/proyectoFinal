@@ -10,6 +10,8 @@ urlpatterns = [
     path("inicioMsj/", views.inicioMsj, name="inicioMsj"),
     path("mensajes/", views.mensajes, name="mensajes"),
     path("responder/", views.responder, name="responder"),
+    path("verMensajes/", views.verMensajes, name="verMensajes"),
+
 
 
 ]

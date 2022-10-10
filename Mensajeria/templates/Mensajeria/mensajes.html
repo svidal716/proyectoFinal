@@ -1,14 +1,32 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
 <h1 class="mb-5">Panel Administracion de Mensajes!</h1>
 {% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">Enviar Mensaje:</h2>
+<br />
+<br />
 
-<h1>Ver Mensajes</h1>
 <form action="{% url 'mensajes' %}" method="POST">
   {% csrf_token %}
 
-  <table>
+  <table align="center">
     {{ formularioMensaje.as_table }}
   </table>
-  <input type="submit" class="btn btn-success" value="Enviar" />
+  <br />
+  <br />
+  <th>
+    <tr>
+      <td>
+        <input type="submit" class="btn btn-success" value="Enviar" />
+      </td>
 </form>
+<td>
+  <a href="{% url 'inicioMsj' %}">
+    <button class="btn btn-danger">Volver</button>
+  </a>
+</td>
+</tr>
+</th>
+<h2>{{ mensaje }}</h2>
+<br />
+
 {% endblock %}

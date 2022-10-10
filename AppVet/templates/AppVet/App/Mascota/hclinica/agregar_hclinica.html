@@ -1,14 +1,35 @@
 {% extends "AppVet/App/app_admin.html" %} {% load static %} {% block titulo %}
-<h1 class="mb-5">Agregar una Mascota</h1>
-{% endblock %} {% block contenido_que_cambia %}
+<h1 class="mb-5">Administracion Panel Veterinario</h1>
 
+{% endblock %} {% block contenido_que_cambia %}
+<h2 style="font-family: cursive">Ingrese La historia clinica de la Mascota:</h2>
+<br />
+<br />
 <form action="{% url 'agregarClinica' %}" method="POST">
   {% csrf_token %}
 
   <table>
     {{ formularioHClinica.as_table }}
   </table>
-  <input type="submit" value="Agregar" />
+  <br />
+  <br />
+  <table>
+    <tr>
+      <td></td>
+      <th>
+        <p align="center">
+          <input type="submit" class="btn btn-success" value="Agregar" />
+        </p>
+      </th>
+      <th>
+        <p align="center">
+          <a class="btn btn-warning" href="{% url 'inicioClinica' %}">
+            Volver
+          </a>
+        </p>
+      </th>
+    </tr>
+  </table>
 </form>
 
 {% endblock %}
