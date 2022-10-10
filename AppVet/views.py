@@ -11,9 +11,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
-# Create your views here.
-
-# Creamos las vistas del MENU:
+######################################################################################################################################
+#
+#
+# Creamos las vistas para el Menu principal de la web:
 
 
 def index(request):
@@ -31,17 +32,18 @@ def services(request):
     return render(request, "AppVet/services.html")
 
 
-# Creamos las Vistas para  Administracion
+###################################################################################################################################################
+# -------------  LOGIN ----------------------------------------------------------------------------------------------------------------------------
+###################################################################################################################################################
+#
+#
+# Creamos las vistas relacionadas con Iniciar Sesion, Registrar nuevo Usuario, Editar usuario, Agregar Avatar:
+
 
 @login_required
 def appAdmin(request):
 
     return render(request, "AppVet/App/app_admin.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
-
-
-####################################################################################################################################################
-# -------------  LOGIN -----------------------------------------------------------------------------------------------------------------------------
-####################################################################################################################################################
 
 
 def login_request(request):
@@ -97,7 +99,6 @@ def editarPerfil(request):
             usuario.password2 = info["password2"]
             usuario.first_name = info["first_name"]
             usuario.last_name = info["last_name"]
-            #usuario.avatar = info["avatar"]
             usuario.save()
             return render(request, 'AppVet/App/app_admin.html', {"username": {usuario}, "mensaje": "Perfil editado correctamente"})
         else:
@@ -142,9 +143,6 @@ def obtenerUser(request):
     username = request.user.username
     return username
 
-####################################################################################################################################################
-# -------------   CREADORES  -----------------------------------------------------------------------------------------------------------------------
-####################################################################################################################################################
 # Inicio Creadores
 
 
@@ -152,8 +150,6 @@ def obtenerUser(request):
 def inicioCreadores(request):
 
     return render(request, "AppVet/App/creadores.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
-
-# Agregar Veterinario a la DB.
 
 
 ####################################################################################################################################################
@@ -166,7 +162,7 @@ def inicioVete(request):
 
     return render(request, "AppVet/App/Veterinario/inicio_veterinario.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
-# Agregar Veterinario a la DB.
+# Agregar Veterinario nuevo Veterinario.
 
 
 @ login_required
@@ -179,8 +175,6 @@ def agregarVeterinarios(request):
         if formularioVet.is_valid():
 
             info = formularioVet.cleaned_data
-
-        # Guardamos la data del form en la DB
 
             veterinario = DatosVeterinarios(nombreVet=info["nombreVetForm"], apellidoVet=info["apellidoVetForm"],
                                             matriculaVet=info["matriculaVetForm"], emailVet=info["emailVetForm"],
@@ -195,19 +189,9 @@ def agregarVeterinarios(request):
         return render(request, "AppVet/App/Veterinario/agregar_veterinario.html", {"username": obtenerUser(request), "formularioVet": formularioVet, "avatar": obtenerAvatar(request)})
 
 
-'''
-Vamos a tener dos Vistas diferentes:
-    1 - Una donde esta el formulario donde pongo a buscar
-    2 - Otra donde me muestre el resultado.  (buscar)
-    (Se pueden hacer ambas juntas)
-
-'''
 # Buscamos Veterinario a la DB.
-
-
 @ login_required
 def busquedaVeterinario(request):
-    # me va a mostrar un formulario.
 
     return render(request, "AppVet/App/Veterinario/buscar_veterinario.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
@@ -219,7 +203,7 @@ def buscarVeterinario(request):
 
         veterinarios = request.GET["veterinario"]
         busquedaVete = DatosVeterinarios.objects.filter(
-            nombreVet=veterinarios)  # Filtramos por nombre de Veterinario
+            nombreVet=veterinarios)
 
         return render(request, "AppVet/App/Veterinario/resultado_busqueda_veterinario.html", {"username": obtenerUser(request), "busquedaVete": busquedaVete, "avatar": obtenerAvatar(request)})
 
@@ -233,9 +217,9 @@ def busquedaVeteAll(request):
     veterinarios = DatosVeterinarios.objects.all()
 
     return render(request, "AppVet/App/Veterinario/busqueda_veterinarioall.html", {"username": obtenerUser(request), "veterinarios": veterinarios, "avatar": obtenerAvatar(request)})
+
+
 # Eliminamos Veterinario:
-
-
 @ login_required
 def eliminarVeterinario(request, id):
 
@@ -281,13 +265,15 @@ def modificarVeterinario(request, id):
 ####################################################################################################################################################
 # -------------   PROPIETARIO MASCOTA   ------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
+
+# Inicio Propietario / Cliente
 @ login_required
 def inicioPropietario(request):
 
     return render(request, "AppVet/App/Propietario/inicio_propietario.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
 
-# Definimos el Model Datos Dueño de la Mascota:
+# Agregamos Cliente:
 @ login_required
 def agregarPropietario(request):
 
@@ -298,8 +284,6 @@ def agregarPropietario(request):
         if formularioProp.is_valid():
 
             info = formularioProp.cleaned_data
-
-        # Guardamos la data del form en la DB
 
             propietario = DatosPropietario(nombrePropietario=info["nombrePropietarioForm"],
                                            apellidoPropietario=info["apellidoPropietarioForm"],
@@ -319,12 +303,11 @@ def agregarPropietario(request):
         formularioProp = PropietarioForm()
         return render(request, "AppVet/App/Propietario/agregar_propietario.html", {"username": obtenerUser(request), "formularioProp": formularioProp, "avatar": obtenerAvatar(request)})
 
-# Buscamos PROPIETARIO a la DB.
+# Buscamos Clientes.
 
 
 @ login_required
 def busquedaPropietario(request):
-    # me va a mostrar un formulario.
 
     return render(request, "AppVet/App/Propietario/buscar_propietario.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
@@ -336,7 +319,7 @@ def buscarPropietario(request):
 
         propietario = request.GET["propietario"]
         busquedaPropietario = DatosPropietario.objects.filter(
-            nombrePropietario=propietario)  # Filtramos por nombre de Propietario
+            nombrePropietario=propietario)
 
         return render(request, "AppVet/App/Propietario/resultado_busqueda_propietario.html", {"username": obtenerUser(request), "busquedaPropietario": busquedaPropietario, "avatar": obtenerAvatar(request)})
 
@@ -408,12 +391,13 @@ def modificarPropietario(request, id):
 ####################################################################################################################################################
 # -------------  DATOS  MASCOTA         ------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el Model Datos principales de la Mascota:
-
+# Inicio Mascotas
 @ login_required
 def inicioMascota(request):
 
     return render(request, "AppVet/App/Mascota/inicio_mascota.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
+
+# Agregamos nueva mascota
 
 
 @ login_required
@@ -426,8 +410,6 @@ def agregarMascota(request):
         if formularioMascotas.is_valid():
 
             info = formularioMascotas.cleaned_data
-
-        # Guardamos la data del form en la DB
 
             mascota = DatosMascota(nombreMascota=info["nombreMascotaForm"],
                                    razaMascota=info["razaMascotaForm"],
@@ -443,11 +425,10 @@ def agregarMascota(request):
         return render(request, "AppVet/App/Mascota/agregar_mascota.html", {"username": obtenerUser(request), "formularioMascotas": formularioMascotas, "avatar": obtenerAvatar(request)})
 
 
-# Buscamos PROPIETARIO a la DB.
+# Buscamos Mascota.
 
 @ login_required
 def busquedaMascota(request):
-    # me va a mostrar un formulario.
 
     return render(request, "AppVet/App/Mascota/buscar_mascota.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
@@ -504,7 +485,6 @@ def modificarMascota(request, id):
             mascota.especieMascota = info["especieMascotaForm"],
             mascota.fechaNacimientoMascota = info["fechaNacimientoMascotaForm"]
             mascota.apellidoPropietarioMascota = info["apellidoPropietarioMascotaForm"]
-           # mascota.imagenMascota = info["imagenMascotaForm"]
 
             mascota.save()
             mascotas = DatosMascota.objects.all()
@@ -532,6 +512,8 @@ def modificarMascota(request, id):
 def inicioClinica(request):
 
     return render(request, "AppVet/App/Mascota/hclinica/inicio_hclinica.html", {"username": obtenerUser(request), "avatar": obtenerAvatar(request)})
+
+# Agregamos nueva historia Clinica
 
 
 @ login_required
@@ -565,6 +547,7 @@ def agregarClinica(request):
         return render(request, "AppVet/App/Mascota/hclinica/agregar_hclinica.html", {"formularioHClinica": formularioHClinica, "username": obtenerUser(request), "avatar": obtenerAvatar(request)})
 
 
+# Buscamos Historia Clinica
 @ login_required
 def busquedaClinica(request):
     # me va a mostrar un formulario.
@@ -594,7 +577,7 @@ def busquedaClinicaAll(request):
 
     return render(request, "AppVet/App/Mascota/hclinica/busqueda_hclinica_all.html", {"username": obtenerUser(request), "hclinica": hclinica, "avatar": obtenerAvatar(request)})
 
-# Eliminamos Mascota:
+# Eliminamos Historia Clinica:
 
 
 @ login_required

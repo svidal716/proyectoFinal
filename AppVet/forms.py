@@ -22,12 +22,15 @@ vacunaMascota = ["Primovacunación", "Polivalente", "Ref Polivalente", "Rabia"]
 ####################################################################################################################################################
 # -------------  FORMULARIO VETERINARIO ------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el formulario para los veterinarios:
+#
+#
+'''
+-   Definimos las campos para agregar Veterinarios.
+-   Con widget le damos formato a los campos del formulario.
+'''
 
 
 class VeterinarioForm(forms.Form):
-
-    # creamos los campos del formulario:
 
     nombreVetForm = forms.CharField(max_length=40, label="Nombre Veterinario", widget=forms.TextInput(
         attrs={'placeholder': 'Nombre', 'style': 'width: 300px;', 'class': 'form-control'}))
@@ -50,7 +53,14 @@ class VeterinarioForm(forms.Form):
 ####################################################################################################################################################
 # -------------  FORMULARIO PROPIETARIO ------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el formulario para los Propietarios:
+#
+#
+'''
+-   Definimos las campos para agregar Propietarios / Clientes.
+-   Con widget le damos formato a los campos del formulario.
+'''
+
+
 class PropietarioForm(forms.Form):
 
     nombrePropietarioForm = forms.CharField(
@@ -89,7 +99,16 @@ class PropietarioForm(forms.Form):
 ####################################################################################################################################################
 # -------------  FORMULARIO MASCOTA-----------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el formulario para las Mascotas:
+#
+#
+'''
+-   Definimos las campos para agregar Mascotas.
+-   Con widget le damos formato a los campos del formulario.
+-   Relacionamos el campo apellidoPropietarioMascotaForm con el Models de Propietarios para asi  saber quien es el dueño
+de la mascota.
+'''
+
+
 class MascotaForm(forms.Form):
 
     nombreMascotaForm = forms.CharField(max_length=40, label="Nombre Mascota", widget=forms.TextInput(
@@ -106,10 +125,18 @@ class MascotaForm(forms.Form):
     apellidoPropietarioMascotaForm = forms.ModelChoiceField(
         label="Dueño de Mascota", queryset=DatosPropietario.objects.all())
 
+
 ####################################################################################################################################################
 # -------------  FORMULARIO Historia Clinica  ------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el formulario para los Propietarios:
+#
+#
+'''
+-   Definimos las campos para agregar historias clinicas.
+-   Con widget le damos formato a los campos del formulario.
+-   Relacionamos campo nombreMascotaForm con el models de Mascotas para seleccionar una mascota existente. 
+-   Relacionamos campo veterinarioMascotaForm con el models Veterinarios, para que cada masctoa tenga un veterinario existente.
+'''
 
 
 class HistoriaClinicaForm(forms.Form):
@@ -149,7 +176,14 @@ class HistoriaClinicaForm(forms.Form):
 ####################################################################################################################################################
 # -------------  FORMULARIO USUARIOS ---------------------------------------------------------------------------------------------------------------
 ####################################################################################################################################################
-# # Definimos el formulario para los Usuarios:
+#
+#
+'''
+-   Definimos los forms para Registrar, editar y agregar avatar a los usuarios.
+
+'''
+
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(
@@ -188,9 +222,6 @@ class UserEditForm(UserCreationForm):
         help_texts = {k: "" for k in fields}
 
 
-####################################################################################################################################################
-# -------------  FORMULARIO AVATAR ------------------------------------------------------------------------------------------------------------
-####################################################################################################################################################
 # # Definimos el formulario para los Avatares:
 class AvatarForm(forms.Form):
     imagen = forms.ImageField(label="Imagen")

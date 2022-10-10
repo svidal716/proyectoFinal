@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from AppVet import views
+from django.contrib import admin
 
 
 urlpatterns = [
@@ -92,6 +93,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='AppVet/App/Usuario/logout.html'), name='logout'),
     path('agregarAvatar/', views.agregarAvatar, name='agregarAvatar'),
     path('editarPerfil/', views.editarPerfil, name='editarPerfil'),
+    path('admin/', admin.site.urls),
 
 
 ]
