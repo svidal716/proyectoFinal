@@ -2,7 +2,7 @@
 
 
 
-![Esta es una imagen](https://i2.wp.com/zoovetesmipasion.com/wp-content/uploads/2017/10/veterinario-.jpg?fit=712%2C350)
+[Esta es una imagen](https://i2.wp.com/zoovetesmipasion.com/wp-content/uploads/2017/10/veterinario-.jpg?fit=712%2C350)
 
 
 
